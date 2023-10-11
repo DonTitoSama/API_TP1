@@ -43,9 +43,16 @@ exports.createAVote = async (req, res) => {
 
 exports.updateAVote = async (req, res) => {
     try {
-        await Vote.findByIdAndUpdate(req.params.id_vote, req.body, {new: true});
-        res.status(200);
-        res.json({message: 'Vote modifié'});
+        const number = req.body.numbervote;
+        if (number <= 5 && number >=1) {
+            await Vote.findByIdAndUpdate(req.params.id_vote, req.body, {new: true});
+            res.status(200);
+            res.json({message: 'Vote modifié'});
+        } else {
+            res.status(404);
+            console.log(error);
+            res.json({message: 'Vote doit etre compris entre 1 et 5'});
+        }
     } catch (error) {
         res.status(404);
         console.log(error);
