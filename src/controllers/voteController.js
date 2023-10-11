@@ -3,7 +3,7 @@ const Music = require('../models/musicModel');
 
 exports.listAllVote = async (req, res) => {
     try {
-        const vote = await Vote.find({id_musict: req.params.id_music});
+        const vote = await Vote.find({id_music: req.params.id_music});
         res.status(200);
         res.json(vote);
     } catch (error) {
