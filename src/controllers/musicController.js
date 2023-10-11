@@ -12,17 +12,17 @@ exports.listAllMusic = async (req, res) => {
     }
 }
 
-    exports.createAMusic = async (req, res) => {
-        const newMusic = new Music(req.body);
-        try {
-            const music = await newMusic.save();
-            res.status(201);
-            res.json(music);
-        } catch (error) {
-            res.status(500);
-            console.log(error);
-            res.json({message: 'Erreur serveur'});
-        }
+exports.createAMusic = async (req, res) => {
+    const newMusic = new Music(req.body);
+    try {
+        const music = await newMusic.save();
+        res.status(201);
+        res.json(music);
+    } catch (error) {
+        res.status(500);
+        console.log(error);
+        res.json({message: 'Erreur serveur'});
+    }
 }
 
 exports.updateAMusic = async (req, res) => {
