@@ -6,7 +6,7 @@ const voteController = require('../controllers/voteController');
 router
     .route('/music/:id_music/vote')
     .get(voteController.listAllVote)
-    .post(voteController.createAComment);
+    .post(voteController.createAVote);
 
 router
     .route('/vote/:id_vote')
